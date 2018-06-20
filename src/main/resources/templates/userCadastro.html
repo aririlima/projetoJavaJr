@@ -1,0 +1,87 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+<title>EventosApp</title>
+<!--Import Google Icon Font-->
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+	rel="stylesheet" />
+<!--Import materialize.css-->
+<link type="text/css" rel="stylesheet"
+	href="materialize/css/materialize.min.css" media="screen,projection" />
+
+<!--Let browser know website is optimized for mobile-->
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="stylesheet" href="style/styleCss.css" />
+</head>
+<body>
+
+
+	<main style="padding-top: 50px;">
+
+	<div class="container formUser" style="border: 3px solid gainsboro; padding-top: 45px; padding-bottom: 45px;">
+
+		<form class="container" method="put">
+		<h3 style="text-align: center; margin-bottom: 40px;">Formulário de Cadastro</h3>
+			<div class="row">
+				<div class="input-field col s6">
+					Nome: <input type="enum" value="" name="nome" />
+				</div>
+				<div class="input-field col s3">
+					Data de nascimento: <input type="date" value="" name="nascimento" />
+				</div>
+
+				<div class="input-field col s3">
+					E-mail: <input type="text" value="" name="email" />
+				</div>
+				<div class="input-field col s3">
+					CPF: <input type="text" value="" name="cpf" />
+				</div>
+				
+				<div class="input-field col s12">
+				    <select name="estadoCivil">
+				      <option value="" disabled selected>Escolha uma opção</option>
+				      <option value="1">Solteiro(a)</option>
+				      <option value="2">Casado(a)</option>
+				      <option value="3">Viúvo(a)</option>
+				    </select>
+				    <label>Estado Civil</label>
+			  	</div>
+				
+				<p>
+				  <label>
+				      <input class="with-gap" name="sexo" type="radio" checked />
+				      <span>Feminino</span>
+				    </label>
+				  </p>
+				 <p>
+				    <label>
+				      <input class="with-gap" name="sexo" type="radio" checked />
+				      <span>Masculino</span>
+				    </label>
+				 </p>
+
+			    <p>
+			      <label>
+			        <input type="checkbox" class="filled-in" checked="checked" name="ativo"/>
+			        <span>Ativo</span>
+			      </label>
+			    </p>
+
+			</div>
+			<button class="waves-effect waves-light btn" type="submit"><a href="#" th:href="@{/user/{sexom}/{sexof}/{ativo}/{estadoCivil}}">Salvar</button>
+
+		</form>
+	</div>
+	</main>
+
+
+	<script type="text/javascript"
+		src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+	<script type="text/javascript" src="materialize/js/materialize.min.js"></script>
+
+</body>
+
+
+</html>
