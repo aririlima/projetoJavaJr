@@ -4,14 +4,13 @@ package br.com.projetoJavaJr.controllers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
 import br.com.projetoJavaJr.model.entities.User;
-import br.com.projetoJavaJr.model.enuns.EEstadoCivil;
-import br.com.projetoJavaJr.model.enuns.ESexo;
 import br.com.projetoJavaJr.model.repositoy.UserRepository;
 
 
@@ -29,38 +28,13 @@ public class UserController {
 		return new ModelAndView("userCadastro");
 	}
 	
-	@PutMapping(value="userCadastro/{sexom}/{sexof}/{ativo}/{estadoCivil}")
-	public ModelAndView userCadastro(User user, @PathVariable("sexom") boolean sexom, @PathVariable("sexof") boolean sexof, @PathVariable("ativo") boolean ativo, @PathVariable("estadoCivil") String estadoCivil) {
+//	@PostMapping(value="userCadastro/{sexom}/{sexof}/{ativo}/{estadoCivil}")
+//	@PathVariable("sexom") boolean sexom, @PathVariable("sexof") boolean sexof, @PathVariable("ativo") boolean ativo, @PathVariable("estadoCivil") String estadoCivil
 
-		System.out.println("PUT Cadastrado");
-		
-		if(sexom == true) {
-			user.setSexo(ESexo.MASCULINO);
-		}else if(sexof == true) {
-			user.setSexo(ESexo.FEMININO);
-		}else {
-			System.out.println("Sexo não informado.");
-		}
-		
-		if(ativo == true) {
-			user.setAtivo(true);
-		}else{
-			user.setAtivo(false);
-		}
-		
-		switch(estadoCivil) {
-			case "1":
-				user.setEstadoCivil(EEstadoCivil.SOLTEIRO);
-				break;
-			case "2":
-				user.setEstadoCivil(EEstadoCivil.CASADO);
-				break;
-			case "3":
-				user.setEstadoCivil(EEstadoCivil.VIUVO);
-				break;
-			default:
-				System.out.println("Estado civil não informado.");
-		}
+	@PostMapping(value="userCadastro")
+	public ModelAndView postUser(User user) {
+
+		System.out.println("POST Cadastrado");
 		
 		try {
 			if(user != ur.findByCpf(user.getCpf())) {
@@ -74,21 +48,21 @@ public class UserController {
 		}
 	}
 	
-	@PutMapping("/edit/{cpf}")
-	public ModelAndView edit(@PathVariable("cpf") String cpf) {
+	@PostMapping("edit")
+	public ModelAndView userUpdate(User user) {
 		try {
-			ur.findByCpf(cpf);
+			ur.save(user);
 			return new ModelAndView("usersList");
 			
 		}catch(Exception ex) {
 			System.out.println(ex);
+			return new ModelAndView("cadastroNaoRealizado");
 		}
 			
-		return new ModelAndView("usersList");
 	}
 	
-	@PutMapping("/delete/{cpf}")
-	public ModelAndView delete(@PathVariable("cpf") String cpf) {
+	@PutMapping("delete/{cpf}")
+	public ModelAndView userDelete(@PathVariable("cpf") String cpf) {
 		
 		try {
 			ur.deleteByCpf(cpf);
@@ -96,14 +70,16 @@ public class UserController {
 			
 		}catch(Exception ex) {
 			System.out.println(ex);
+			return new ModelAndView("cadastroNaoRealizado");
 		}		
 		
-		return new ModelAndView("usersList");
 	}
 	
-	@GetMapping(value="cadastroRealizado")
-	public ModelAndView getLista() {
+	@GetMapping(value="")
+	public ModelAndView getUserList() {
 		System.out.println("Página lista de usuário");
 		return new ModelAndView("usersList");
 	}
+	
+	
 }

@@ -9,9 +9,6 @@ import javax.validation.constraints.NotNull;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
-import br.com.projetoJavaJr.model.enuns.EEstadoCivil;
-import br.com.projetoJavaJr.model.enuns.ESexo;
-
 @Entity
 public class User implements Serializable{
 
@@ -28,11 +25,11 @@ public class User implements Serializable{
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Calendar nascimento;
 	@NotNull
-	private ESexo sexo;
+	private String sexo;
 	@NotNull
-	private EEstadoCivil estadoCivil;	
+	private String estadoCivil;	
 	@NotNull
-	private boolean ativo;
+	private String ativo;
 	
 	
 	
@@ -60,25 +57,25 @@ public class User implements Serializable{
 	public void setNascimento(Calendar nascimento) {
 		this.nascimento = nascimento;
 	}
-	public ESexo getSexo() {
+	public String getSexo() {
 		return sexo;
 	}
-	public void setSexo(ESexo sexo) {
+	public void setSexo(String sexo) {
 		this.sexo = sexo;
 	}
-	public EEstadoCivil getEstadoCivil() {
+	public String getEstadoCivil() {
 		return estadoCivil;
 	}
-	public void setEstadoCivil(EEstadoCivil estadoCivil) {
+	public void setEstadoCivil(String estadoCivil) {
 		this.estadoCivil = estadoCivil;
 	}
-	public boolean isAtivo() {
+	public String getAtivo() {
 		return ativo;
 	}
-	public void setAtivo(boolean ativo) {
+	public void setAtivo(String ativo) {
 		this.ativo = ativo;
 	}
-	
+
 		
 	
 }

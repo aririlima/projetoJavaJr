@@ -22,11 +22,11 @@
 
 	<div class="container formUser" style="border: 3px solid gainsboro; padding-top: 45px; padding-bottom: 45px;">
 
-		<form class="container" method="put">
+		<form class="container" method="post">
 		<h3 style="text-align: center; margin-bottom: 40px;">Formulário de Cadastro</h3>
 			<div class="row">
 				<div class="input-field col s6">
-					Nome: <input type="enum" value="" name="nome" />
+					Nome: <input type="text" value="" name="nome" />
 				</div>
 				<div class="input-field col s3">
 					Data de nascimento: <input type="date" value="" name="nascimento" />
@@ -39,48 +39,53 @@
 					CPF: <input type="text" value="" name="cpf" />
 				</div>
 				
-				<div class="input-field col s12">
-				    <select name="estadoCivil">
-				      <option value="" disabled selected>Escolha uma opção</option>
-				      <option value="1">Solteiro(a)</option>
-				      <option value="2">Casado(a)</option>
-				      <option value="3">Viúvo(a)</option>
-				    </select>
-				    <label>Estado Civil</label>
-			  	</div>
-				
 				<p>
 				  <label>
-				      <input class="with-gap" name="sexo" type="radio" checked />
+				      <input class="with-gap" name="sexo" type="radio" checked="checked" value="Feminino"/>
 				      <span>Feminino</span>
 				    </label>
 				  </p>
 				 <p>
 				    <label>
-				      <input class="with-gap" name="sexo" type="radio" checked />
+				      <input class="with-gap" name="sexo" type="radio" checked="checked" value="Masculino"/>
 				      <span>Masculino</span>
 				    </label>
 				 </p>
 
 			    <p>
 			      <label>
-			        <input type="checkbox" class="filled-in" checked="checked" name="ativo"/>
+			        <input type="checkbox" class="filled-in" checked="checked" name="ativo" value="Ativo"/>
 			        <span>Ativo</span>
 			      </label>
 			    </p>
+			    
+			    <div class="input-field col s12">
+				    <select name="estadoCivil">
+					      <option value="" disabled selected>Escolha uma opção</option>
+					      <option value="Solteiro">Solteiro(a)</option>
+					      <option value="Casado">Casado(a)</option>
+					      <option value="Viuvo">Viúvo(a)</option>
+				    </select>
+				    <label>Estado Civil</label>
+			  	</div>
 
 			</div>
-			<button class="waves-effect waves-light btn" type="submit"><a href="#" th:href="@{/user/{sexom}/{sexof}/{ativo}/{estadoCivil}}">Salvar</button>
-
+			<button class="waves-effect waves-light btn" type="submit"><a href="#" >Salvar</button>
 		</form>
 	</div>
 	</main>
 
-
-	<script type="text/javascript"
-		src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-	<script type="text/javascript" src="materialize/js/materialize.min.js"></script>
-
+<script type="text/javascript" src="//code.jquery.com/jquery-2.1.4.js"></script><style type="text/css"></style>
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/css/materialize.min.css">    
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js"></script>
+  
+	<script type="text/javascript">
+		window.onload = function() {
+			$(document).ready(function() {
+				$('select').material_select();
+			});
+		}
+	</script>
 </body>
 
 

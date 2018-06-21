@@ -41,9 +41,9 @@
 							<td><p>Cpf: <span th:text="${user.cpf}"></span></p></td>
 							<td><p>Data de Nascimento: <span th:date="${#dates.format(user.narcimento, 'dd/MM/yyyy')}"></span></p></td>
 							<td><p>E-mail: <span th:text="${user.email}"></span></p></td>
-							<td><p>Sexo: <span th:text="${user.sexo}"></span></p></td>
-							<td><p>Estado Civil: <span th:text="${user.estadoCivil}"></span></p></td>
-							<td><p>Ativo: <span th:text="${user.ativo}"></span></p></td>
+<!-- 							<td><p>Sexo: <span th:text="${user.sexo}"></span></p></td> -->
+<!-- 							<td><p>Estado Civil: <span th:text="${user.estadoCivil}"></span></p></td> -->
+<!-- 							<td><p>Ativo: <span th:text="${user.ativo}"></span></p></td> -->
 					</div>
 				</table>
 		</main>
@@ -65,38 +65,38 @@
 					CPF: <input type="text" value="" name="cpf" />
 				</div>
 				
-				<div class="input-field col s12">
-				    <select name="estadoCivil">
-				      <option value="" disabled selected>Escolha uma opção</option>
-				      <option value="1">Solteiro(a)</option>
-				      <option value="2">Casado(a)</option>
-				      <option value="3">Viúvo(a)</option>
-				    </select>
-				    <label>Estado Civil</label>
-			  	</div>
+<!-- 				<div class="input-field col s12"> -->
+<!-- 				    <select name="estadoCivil"> -->
+<!-- 				      <option value="" disabled selected>Escolha uma opção</option> -->
+<!-- 				      <option value="1">Solteiro(a)</option> -->
+<!-- 				      <option value="2">Casado(a)</option> -->
+<!-- 				      <option value="3">Viúvo(a)</option> -->
+<!-- 				    </select> -->
+<!-- 				    <label>Estado Civil</label> -->
+<!-- 			  	</div> -->
 				
-				<p>
-				  <label>
-				      <input class="with-gap" name="sexo" type="radio" checked />
-				      <span>Feminino</span>
-				    </label>
-				  </p>
-				 <p>
-				    <label>
-				      <input class="with-gap" name="sexo" type="radio" checked />
-				      <span>Masculino</span>
-				    </label>
-				 </p>
+<!-- 				<p> -->
+<!-- 				  <label> -->
+<!-- 				      <input class="with-gap" name="sexo" type="radio" checked /> -->
+<!-- 				      <span>Feminino</span> -->
+<!-- 				    </label> -->
+<!-- 				  </p> -->
+<!-- 				 <p> -->
+<!-- 				    <label> -->
+<!-- 				      <input class="with-gap" name="sexo" type="radio" checked /> -->
+<!-- 				      <span>Masculino</span> -->
+<!-- 				    </label> -->
+<!-- 				 </p> -->
 
-			    <p>
-			      <label>
-			        <input type="checkbox" class="filled-in" checked="checked" name="ativo"/>
-			        <span>Ativo</span>
-			      </label>
-			    </p>
+<!-- 			    <p> -->
+<!-- 			      <label> -->
+<!-- 			        <input type="checkbox" class="filled-in" checked="checked" name="ativo"/> -->
+<!-- 			        <span>Ativo</span> -->
+<!-- 			      </label> -->
+<!-- 			    </p> -->
 
 			</div>
-			<button class="waves-effect waves-light btn" type="submit"><a href="#" th:href="@{/user/{sexom}/{sexof}/{ativo}/{estadoCivil}}">Salvar</button>
+			<button class="waves-effect waves-light btn" type="submit"><a href="#">Salvar</button>
 
 		</form>
 		</main>
