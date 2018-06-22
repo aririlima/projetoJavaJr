@@ -23,11 +23,12 @@ public class User implements Serializable{
 	private String email;
 	@NotNull
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
-	private Calendar nascimento;
+	private String nascimento;
 	@NotNull
 	private String sexo;
 	@NotNull
 	private String estadoCivil;	
+	
 	@NotNull
 	private String ativo;
 	
@@ -51,10 +52,10 @@ public class User implements Serializable{
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	public Calendar getNascimento() {
+	public String getNascimento() {
 		return nascimento;
 	}
-	public void setNascimento(Calendar nascimento) {
+	public void setNascimento(String nascimento) {
 		this.nascimento = nascimento;
 	}
 	public String getSexo() {

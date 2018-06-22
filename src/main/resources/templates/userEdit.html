@@ -5,7 +5,7 @@
 <head>
 <meta charset="utf-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<title>Eventos App</title>
+<title>Java Jr</title>
 <!--Import Google Icon Font-->
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
 	rel="stylesheet" />
@@ -15,6 +15,17 @@
 <!--Let browser know website is optimized for mobile-->
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <link rel="/stylesheet" href="../style/styleCss.css" />
+
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <script>
+  $( function() {
+    var availableTags = document.createElement();
+    $( "#tags" ).autocomplete({
+      source: availableTags
+    });
+  } );
+  </script>
 </head>
 <body>
 
@@ -39,11 +50,11 @@
 					
 							<td><p>Nome: <span th:text="${user.nome}"></span></p></td>
 							<td><p>Cpf: <span th:text="${user.cpf}"></span></p></td>
-							<td><p>Data de Nascimento: <span th:date="${#dates.format(user.narcimento, 'dd/MM/yyyy')}"></span></p></td>
+							<td><p>Data de Nascimento: <span th:date="${user.nascimento}"></span></p></td>
 							<td><p>E-mail: <span th:text="${user.email}"></span></p></td>
-<!-- 							<td><p>Sexo: <span th:text="${user.sexo}"></span></p></td> -->
-<!-- 							<td><p>Estado Civil: <span th:text="${user.estadoCivil}"></span></p></td> -->
-<!-- 							<td><p>Ativo: <span th:text="${user.ativo}"></span></p></td> -->
+							<td><p>Sexo: <span th:text="${user.sexo}"></span></p></td>
+							<td><p>Estado Civil: <span th:text="${user.estadoCivil}"></span></p></td>
+							<td><p>Ativo: <span th:text="${user.ativo}"></span></p></td>
 					</div>
 				</table>
 		</main>
@@ -52,48 +63,47 @@
 		<h3 style="text-align: center; margin-bottom: 40px;">Formulário de Edição</h3>
 			<div class="row">
 				<div class="input-field col s6">
-					Nome: <input type="enum" value="" name="nome" />
+					Nome: <input id="tags" type="text" value="" name="nome" />
 				</div>
 				<div class="input-field col s3">
-					Data de nascimento: <input type="date" value="" name="nascimento" />
+					Data de nascimento: <input id="tags" type="date" value="" name="nascimento" />
 				</div>
 
 				<div class="input-field col s3">
-					E-mail: <input type="text" value="" name="email" />
+					E-mail: <input id="tags" type="text" value="" name="email" />
 				</div>
 				<div class="input-field col s3">
-					CPF: <input type="text" value="" name="cpf" />
+					CPF: <input id="tags" type="text" value="" name="cpf" />
 				</div>
 				
-<!-- 				<div class="input-field col s12"> -->
-<!-- 				    <select name="estadoCivil"> -->
-<!-- 				      <option value="" disabled selected>Escolha uma opção</option> -->
-<!-- 				      <option value="1">Solteiro(a)</option> -->
-<!-- 				      <option value="2">Casado(a)</option> -->
-<!-- 				      <option value="3">Viúvo(a)</option> -->
-<!-- 				    </select> -->
-<!-- 				    <label>Estado Civil</label> -->
-<!-- 			  	</div> -->
-				
-<!-- 				<p> -->
-<!-- 				  <label> -->
-<!-- 				      <input class="with-gap" name="sexo" type="radio" checked /> -->
-<!-- 				      <span>Feminino</span> -->
-<!-- 				    </label> -->
-<!-- 				  </p> -->
-<!-- 				 <p> -->
-<!-- 				    <label> -->
-<!-- 				      <input class="with-gap" name="sexo" type="radio" checked /> -->
-<!-- 				      <span>Masculino</span> -->
-<!-- 				    </label> -->
-<!-- 				 </p> -->
+				<p>
+				  <label>
+				      <input class="with-gap" name="sexo" type="radio" checked  value="Feminino"/>
+				      <span>Feminino</span>
+				    </label>
+				  </p>
+				 <p>
+				    <label>
+				      <input class="with-gap" name="sexo" type="radio" checked  value="Masculino"/>
+				      <span>Masculino</span>
+				    </label>
+				 </p>
 
-<!-- 			    <p> -->
-<!-- 			      <label> -->
-<!-- 			        <input type="checkbox" class="filled-in" checked="checked" name="ativo"/> -->
-<!-- 			        <span>Ativo</span> -->
-<!-- 			      </label> -->
-<!-- 			    </p> -->
+			    <p>
+			      <label>
+			        <input type="checkbox" class="filled-in" checked="checked" name="ativo"  value="Ativo"/>
+			        <span>Ativo</span>
+			      </label>
+			    </p>
+			    <div class="input-field col s12">
+				    <select id="tags" name="estadoCivil">
+				      <option value="" disabled selected>Escolha uma opção</option>
+				      <option value="Solteiro">Solteiro(a)</option>
+				      <option value="Casado">Casado(a)</option>
+				      <option value="Viuvo">Viúvo(a)</option>
+				    </select>
+				    <label>Estado Civil</label>
+			  	</div>
 
 			</div>
 			<button class="waves-effect waves-light btn" type="submit"><a href="#">Salvar</button>
@@ -115,5 +125,15 @@
 	<script type="text/javascript"
 		src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 	<script type="text/javascript" src="materialize/js/materialize.min.js"></script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js"></script>
+  
+	<script type="text/javascript">
+		window.onload = function() {
+			$(document).ready(function() {
+				$('select').material_select();
+			});
+		}
+		
+	</script>
 </body>
 </html>
