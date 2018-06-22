@@ -2,8 +2,10 @@ package br.com.projetoJavaJr.controllers;
 
 
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -64,13 +66,16 @@ public class UserController {
 	public ModelAndView userUpdate(@PathVariable("cpf") String cpf, User user) {
 		System.out.println("Página edit post");
 
+		if(user.getAtivo() != "Ativo")
+		user.setAtivo("Itativo");
+		
 		try {
 			User userE = ur.findByCpf(cpf);
 			userE = user;
 			ur.save(userE);
 			
 			Iterable <User> users = ur.findAll();
-			ModelAndView mv = new ModelAndView("userEdit"); //página html que é exibida
+			ModelAndView mv = new ModelAndView("usersList"); //página html que é exibida
 			mv.addObject("users", users);
 			return mv;
 			
@@ -86,7 +91,27 @@ public class UserController {
 		System.out.println("Delet");
 
 		try {
-			ur.deleteByCpf(cpf);
+			User user = ur.findByCpf(cpf);
+			ur.delete(user);
+			Iterable <User> users = ur.findAll();
+			ModelAndView mv = new ModelAndView("usersList"); //página html que é exibida
+			mv.addObject("users", users);
+			return mv;
+			
+		}catch(Exception ex) {
+			System.out.println(ex);
+			return new ModelAndView("cadastroNaoRealizado");
+		}		
+		
+	}
+	
+	@GetMapping("deleteAll")
+	public ModelAndView seleteAll() {
+		System.out.println("DeletAll");
+
+		try {
+			
+			ur.deleteAll();
 			Iterable <User> users = ur.findAll();
 			ModelAndView mv = new ModelAndView("usersList"); //página html que é exibida
 			mv.addObject("users", users);
@@ -104,24 +129,25 @@ public class UserController {
 		System.out.println("Página lista de usuário");
 		Iterable <User> users = ur.findAll();
 		
-		
 		ModelAndView mv = new ModelAndView("usersList"); //página html que é exibida
 		mv.addObject("users", users);
 		return mv;
 	}
 	
-	@GetMapping(value="buscar/{nome}")
-	public ModelAndView getByName(@PathVariable("nome") String nome) {
-		System.out.println("filtro nome");
-		User user = ur.findByNome(nome);
-		ModelAndView mv = new ModelAndView("usersList"); //página html que é exibida
-		mv.addObject("users", user);
+	@GetMapping(value="buscarNome/{nome}")
+	public ModelAndView getByName(@PathVariable("nome") String nome, User user) {
+
+		user = ur.findByNome(nome);
+		ModelAndView mv = new ModelAndView("userDetails"); //página html que é exibida
+		mv.addObject("user",user);
+	
 		return mv;
 	}
-	@GetMapping(value="buscar/{cpf}")
+	@GetMapping(value="buscarCpf/{cpf}")
 	public ModelAndView getByCpf(@PathVariable("cpf") String cpf) {
 		System.out.println("filtro cpf");
 		User user = ur.findByCpf(cpf);
+		
 
 		ModelAndView mv = new ModelAndView("usersList"); //página html que é exibida
 		mv.addObject("users", user);

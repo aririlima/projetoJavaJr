@@ -37,61 +37,71 @@
 			<div class="nav-wrapper">
 				<a href="#" class="brand-logo" style="padding-left: 30px;">Detalhes do Usuário:</a>
 			</div>
+
+				<ul id="nav-mobile" class="right hide-on-med-and-down">
+					<li><a class="waves-effect waves-light btn"
+						href="../userCadastro"><i class="material-icons left">add_circle_outline</i>Cadastro</a></li>
+				<ul id="nav-mobile" class="right hide-on-med-and-down">
+					<li><a class="waves-effect waves-light btn"
+						href="../"><i class="material-icons left">format_list_bulleted</i>Lista</a></li>
+				</ul>
 		</nav>
+
+
 
 	</header>
 	<main style="padding-top: 50px;">
 	
  		
-			<main class="container">
-				<table>
-					<h4 style=" margin-bottom: 40px;">Usuário:</h4>
-					<div class="row">
+<!-- 			<main class="container"> -->
+<!-- 				<table> -->
+<!-- 					<h4 style=" margin-bottom: 40px;">Usuário:</h4> -->
+<!-- 					<div class="row"> -->
 					
-							<td><p>Nome: <span th:text="${user.nome}"></span></p></td>
-							<td><p>Cpf: <span th:text="${user.cpf}"></span></p></td>
-							<td><p>Data de Nascimento: <span th:date="${user.nascimento}"></span></p></td>
-							<td><p>E-mail: <span th:text="${user.email}"></span></p></td>
-							<td><p>Sexo: <span th:text="${user.sexo}"></span></p></td>
-							<td><p>Estado Civil: <span th:text="${user.estadoCivil}"></span></p></td>
-							<td><p>Ativo: <span th:text="${user.ativo}"></span></p></td>
-					</div>
-				</table>
-		</main>
+<!-- 							<td><p>Nome: <span th:text="${user.nome}"></span></p></td> -->
+<!-- 							<td><p>Cpf: <span th:text="${user.cpf}"></span></p></td> -->
+<!-- 							<td><p>Data de Nascimento: <span th:date="${user.nascimento}"></span></p></td> -->
+<!-- 							<td><p>E-mail: <span th:text="${user.email}"></span></p></td> -->
+<!-- 							<td><p>Sexo: <span th:text="${user.sexo}"></span></p></td> -->
+<!-- 							<td><p>Estado Civil: <span th:text="${user.estadoCivil}"></span></p></td> -->
+<!-- 							<td><p>Ativo: <span th:text="${user.ativo}"></span></p></td> -->
+<!-- 					</div> -->
+<!-- 				</table> -->
+<!-- 		</main> -->
 		</br>
 		<form class="container" method="post">
 		<h3 style="text-align: center; margin-bottom: 40px;">Formulário de Edição</h3>
 			<div class="row">
 				<div class="input-field col s6">
-					Nome: <input id="tags" type="text" value="" name="nome" />
+					Nome: <input id="tags" type="text" th:value="${user.nome}"  name="nome" />
 				</div>
 				<div class="input-field col s3">
-					Data de nascimento: <input id="tags" type="date" value="" name="nascimento" />
+					Data de nascimento: <input id="tags" type="date" th:value="${user.nascimento}" name="nascimento" />
 				</div>
 
 				<div class="input-field col s3">
-					E-mail: <input id="tags" type="text" value="" name="email" />
+					E-mail: <input id="tags" type="text" th:value="${user.email}" name="email" />
 				</div>
 				<div class="input-field col s3">
-					CPF: <input id="tags" type="text" value="" name="cpf" />
+					CPF: <input id="tags" type="text" th:value="${user.cpf}" name="cpf" />
 				</div>
 				
 				<p>
 				  <label>
-				      <input class="with-gap" name="sexo" type="radio" checked  value="Feminino"/>
+				      <input class="with-gap" name="sexo" type="radio"  th:value="${user.sexo}"/>
 				      <span>Feminino</span>
 				    </label>
 				  </p>
 				 <p>
 				    <label>
-				      <input class="with-gap" name="sexo" type="radio" checked  value="Masculino"/>
+				      <input class="with-gap" name="sexo" type="radio"  th:value="${user.sexo}"/>
 				      <span>Masculino</span>
 				    </label>
 				 </p>
 
 			    <p>
 			      <label>
-			        <input type="checkbox" class="filled-in" checked="checked" name="ativo"  value="Ativo"/>
+			        <input type="checkbox" class="filled-in" checked="checked" name="ativo"  th:value="${user.ativo}"/>
 			        <span>Ativo</span>
 			      </label>
 			    </p>

@@ -22,60 +22,66 @@
 
 
 <script type="text/javascript">
-// $(document).ready(function(){
-//     $("input").blur(function(){
-//      if($(this).val() == "")
-//          {
-//              $(this).css({"border" : "1px solid #F00", "padding": "2px"});
-//          }
-//     });
 
+function validar() {
+	var nome = form.nome.value;
+	var email = form.email.value;
+	var cpf = form.cpf.value;
+	var nascimento = form.nascimento.value;
+	var sexo = form.sexo.value;
+	var estadoCivil = form.estadoCivil.value;
 
-//     $(document).ready(function(){
-    	  
-//         // utilização do plugin de maskara 
-//         $("#cpf").mask("999.999.999-99");
-//         $("#data_nasc").mask("99/99/9999");       
-//   });
-    
-// 	$(document).ready(function(){
-// 		$("#form").validate(
-// 			rules:{
-// 				nome: {
-// 					required: true,
-// 					maxlength: 100,
-// 					minlength: 3
-// 				},
-// 				email: {
-// 					required: true,
-// 					email: true
-// 				},
-// 				nascimento: {
-// 					required: true
-// 				},
-// 				cpf: {
-// 					required: true,
-// 					min: 11,
-// 					max: 11
-// 				},
-// 				estadoCivil: {
-// 					required: true
-// 				}
-// 			},
-// 			submitHandler: function(form){
-// 				alert("Sucessoooooooooo")						
-// 			}
-// 		})
-			
-// 	})
-
+	if (nome == "") {
+		alert('Preencha o campo nome');
+		form.nome.focus();
+		return false;
+	}
+	if (email == "") {
+		alert('Preencha o campo email');
+		form.email.focus();
+		return false;
+	}
+	if (cpf == "") {
+		alert('Preencha campo cpf');
+		form.cpf.focus();
+		return false;
+	}
+	if (nascimento == "") {
+		alert('Preencha o campo data de nascimento');
+		form.nascimento.focus();
+		return false;
+	}
+	if (sexo == "") {
+		alert('Preencha o campo sexo');
+		form.sexo.focus();
+		return false;
+	}
+	if (estadoCivil == "") {
+		alert('Preencha o campor estado civil');
+		form.estadoCivil.focus();
+		return false;
+	}
+}
 
 </script>
 
 </head>
 <body>
 
+	<header>
+		<nav class="menu" style="background-color:#90caf9;">
+			<div class="nav-wrapper">
+				<a href="#" class="brand-logo" style="padding-left: 30px;">Detalhes do Usuário:</a>
+			</div>
+				<ul id="nav-mobile" class="right hide-on-med-and-down">
+					<li><a class="waves-effect waves-light btn"
+						href="../"><i class="material-icons left">format_list_bulleted</i>Lista</a></li>
+				</ul>
+		</nav>
 
+
+
+	</header>
 	<main style="padding-top: 50px;">
 
 	<div class="container" style="border: 3px solid gainsboro; padding-top: 45px; padding-bottom: 45px;">
@@ -99,13 +105,13 @@
 				
 				<p>
 				  <label>
-				      <input class="with-gap" name="sexo" type="radio" checked="checked" value="Feminino"/>
+				      <input class="with-gap" name="sexo" type="radio" value="Feminino"/>
 				      <span>Feminino</span>
 				    </label>
 				  </p>
 				 <p>
 				    <label>
-				      <input class="with-gap" name="sexo" type="radio" checked="checked" value="Masculino"/>
+				      <input class="with-gap" name="sexo" type="radio" value="Masculino"/>
 				      <span>Masculino</span>
 				    </label>
 				 </p>
@@ -128,7 +134,7 @@
 			  	</div>
 
 			</div>
-			<button  class="waves-effect waves-light btn" type="submit"><a href="#" >Salvar</button>
+			<button  class="waves-effect waves-light btn" type="submit" onclick="return validar()"><a href="#" >Salvar</button>
 		</form>
 	</div>
 	</main>

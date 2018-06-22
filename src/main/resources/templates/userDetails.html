@@ -25,52 +25,18 @@
 	<header>
 		<nav class="menu" style="background-color:#90caf9;">
 			<div class="nav-wrapper">
-				<a href="#" class="brand-logo" style="padding-left: 30px;">Lista
-					de Usuários:</a>
+				<a href="#" class="brand-logo" style="padding-left: 30px;">Detalhes do Usuário:</a>
 			</div>
-			
 				<ul id="nav-mobile" class="right hide-on-med-and-down">
 					<li><a class="waves-effect waves-light btn"
 						href="userCadastro"><i class="material-icons left">add_circle_outline</i>Cadastro</a></li>
-
+				<ul id="nav-mobile" class="right hide-on-med-and-down">
+					<li><a class="waves-effect waves-light btn"
+						href="../"><i class="material-icons left">format_list_bulleted</i>Lista</a></li>
 				</ul>
 		</nav>
 
 	</header>
-	 <div class="container">
-	
-	            <div class="row">
-	                <div class="col">
-	                    <div class="collapse" id="collapseNome">
-	
-	                        <nav class="navbar navbar-light bg-light">
-	                            <form class="form-inline" method="GET" th:href="@{/buscarNome/nome}">
-	                                <input class="form-control mr-sm-2" type="search" placeholder="nome" aria-label="Search"
-	                                       th:name="nome" />
-	                                <button class="btn btn-outline-success my-2 my-sm-0">Search</button>
-	                            </form>
-	                        </nav>
-	
-	                    </div>
-	                </div>
-	            </div>
-	            	            <div class="row">
-	                <div class="col">
-	                    <div class="collapse" id="collapseNome">
-	
-	                        <nav class="navbar navbar-light bg-light">
-	                            <form class="form-inline" method="GET" th:action="@{/buscarCpf/cpf}">
-	                                <input class="form-control mr-sm-2" type="search" placeholder="cpf" aria-label="Search"
-	                                       th:name="cpf" />
-	                                <button class="btn btn-outline-success my-2 my-sm-0">Search</button>
-	                            </form>
-	                        </nav>
-	
-	                    </div>
-	                </div>
-	            </div>
-
-	            </div>
 	                       
 	            
 	<main style="padding-top: 50px;">
@@ -92,7 +58,7 @@
 			@{/{urlPagination}/{codigo}( urlPagination=${urlPagination}, codigo=${evento.codigo})}
 		-->
 
-			<tr th:each="user : ${users}">
+			<tr>
 				<td><span th:text="${user.nome}"></span></td>
 				<td><span th:text="${user.cpf}"></span></td>
 				<td><span th:date="${user.nascimento}"></span></td>
@@ -110,10 +76,6 @@
 			</tr>
 		</tbody>
 		</table>
-
-		<div class="btn-group pull-right">
-			<a class="btn btn-sm btn-primary" th:href="@{/deleteAll}" style="margin-top: 25px;margin-left: 1180px;">Excluir Todos</a>
-		</div>
 	</main>
 
 		<footer class="page-footer"
@@ -129,13 +91,5 @@
 		<script type="text/javascript" src="materialize/js/materialize.min.js"></script>
 		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js"></script>
   
-	<script type="text/javascript">
-		window.onload = function() {
-			$(document).ready(function() {
-				$('select').material_select();
-			});
-		}
-		
-	</script>
 </body>
 </html>
