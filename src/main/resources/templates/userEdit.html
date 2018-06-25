@@ -29,13 +29,13 @@
 </head>
 <body>
 
-<!-- DETALHES EVENTO -->
+<!-- EDIÇÃO DE USUÁRIO -->
 
 
 	<header>
 		<nav class="menu" style="background-color:#90caf9;">
 			<div class="nav-wrapper">
-				<a href="#" class="brand-logo" style="padding-left: 30px;">Detalhes do Usuário:</a>
+				<a href="#" class="brand-logo" style="padding-left: 30px;">Edição de Usuário</a>
 			</div>
 
 				<ul id="nav-mobile" class="right hide-on-med-and-down">
@@ -53,22 +53,7 @@
 	<main style="padding-top: 50px;">
 	
  		
-<!-- 			<main class="container"> -->
-<!-- 				<table> -->
-<!-- 					<h4 style=" margin-bottom: 40px;">Usuário:</h4> -->
-<!-- 					<div class="row"> -->
-					
-<!-- 							<td><p>Nome: <span th:text="${user.nome}"></span></p></td> -->
-<!-- 							<td><p>Cpf: <span th:text="${user.cpf}"></span></p></td> -->
-<!-- 							<td><p>Data de Nascimento: <span th:date="${user.nascimento}"></span></p></td> -->
-<!-- 							<td><p>E-mail: <span th:text="${user.email}"></span></p></td> -->
-<!-- 							<td><p>Sexo: <span th:text="${user.sexo}"></span></p></td> -->
-<!-- 							<td><p>Estado Civil: <span th:text="${user.estadoCivil}"></span></p></td> -->
-<!-- 							<td><p>Ativo: <span th:text="${user.ativo}"></span></p></td> -->
-<!-- 					</div> -->
-<!-- 				</table> -->
-<!-- 		</main> -->
-		</br>
+
 		<form class="container" method="post">
 		<h3 style="text-align: center; margin-bottom: 40px;">Formulário de Edição</h3>
 			<div class="row">
@@ -101,7 +86,7 @@
 
 			    <p>
 			      <label>
-			        <input type="checkbox" class="filled-in" checked="checked" name="ativo"  th:value="${user.ativo}"/>
+			        <input type="checkbox" class="filled-in" checked="checked" name="ativo"  value="${user.ativo}"/>
 			        <span>Ativo</span>
 			      </label>
 			    </p>
@@ -122,15 +107,6 @@
 		</main>
 		<br>
 		
-		
-
-		<footer class="page-footer"
-			style="padding-top: 20px; color: #fff; background-color: #42a5f5; border: 3px solid gainsboro; height: 91px; position: absolute; width: 100%; bottom: -500px;">
-			<div class="container"
-				style="padding-bottom: 20px; padding-top: 5px;">
-				© 2018 Daniel Legal & IP Strategy
-			</div>
-		</footer>
 
 	<script type="text/javascript"
 		src="https://code.jquery.com/jquery-3.2.1.min.js"></script>

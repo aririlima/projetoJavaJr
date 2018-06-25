@@ -6,44 +6,75 @@
 <head>
 <meta charset="utf-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<title>Java jr</title>
+<title>Lista de Usuários</title>
 <!--Import Google Icon Font-->
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
 	rel="stylesheet" />
 <!--Import materialize.css-->
 <link type="text/css" rel="stylesheet"
 	href="materialize/css/materialize.min.css" media="screen,projection" />
-
 <!--Let browser know website is optimized for mobile-->
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <link rel="stylesheet" href="style/styleCss.css" />
 </head>
 
 <body>
-<!-- LISTA USUÁRIOS -->
+<!-- PESQUISA USUÁRIO -->
 
 	<header>
 		<nav class="menu" style="background-color:#90caf9;">
 			<div class="nav-wrapper">
-				<a href="#" class="brand-logo" style="padding-left: 30px;">Lista
+				<a href="#" class="brand-logo" style="padding-left: 30px;">Pesquisa
 					de Usuários:</a>
 			</div>
-			
-				<ul id="nav-mobile" class="right hide-on-med-and-down">
-					<li><a class="waves-effect waves-light btn"
-						href="search"><i class="material-icons left">add_circle_outline</i>Search</a></li>
-
-				</ul>
 			
 				<ul id="nav-mobile" class="right hide-on-med-and-down">
 					<li><a class="waves-effect waves-light btn"
 						href="userCadastro"><i class="material-icons left">add_circle_outline</i>Cadastro</a></li>
 
 				</ul>
+				<ul id="nav-mobile" class="right hide-on-med-and-down">
+					<li><a class="waves-effect waves-light btn"
+						href="../"><i class="material-icons left">format_list_bulleted</i>Lista</a></li>
+				</ul>
 		</nav>
 
 	</header>
- 
+	 <div class="container">
+	
+	            <div class="row">
+	                <div class="col">
+	                    <div class="collapse" id="collapseNome">
+	
+	                        <nav class="navbar navbar-light bg-light">
+	                            <form class="form-inline" method="GET" th:href="@{searchByName/nome}">
+	                                <input class="form-control mr-sm-2" type="search" placeholder="nome" aria-label="Search"
+	                                       th:name="nome"/>
+	                                <button class="btn btn-outline-success my-2 my-sm-0"></span></a>Search</button>
+	                            </form>
+	                        </nav>
+	
+	                    </div>
+	                </div>
+	            </div>
+	            	            <div class="row">
+	                <div class="col">
+	                    <div class="collapse" id="collapseNome">
+	
+	                        <nav class="navbar navbar-light bg-light">
+	                            <form class="form-inline" method="GET" th:href="@{searchByName/cpf}">
+	                                <input class="form-control mr-sm-2" type="search" placeholder="cpf" aria-label="Search"
+	                                       th:name="cpf"/>
+	                                <button class="btn btn-outline-success my-2 my-sm-0">Search</button>
+	                            </form>
+	                        </nav>
+	
+	                    </div>
+	                </div>
+	            </div>
+
+	            </div>
+	                       
 	            
 	<main style="padding-top: 50px;">
 	<table>
@@ -82,8 +113,6 @@
 		<div class="btn-group pull-right">
 			<a class="btn btn-sm btn-primary" th:href="@{/deleteAll}" style="margin-top: 25px;margin-left: 1180px;">Excluir Todos</a>
 		</div>
-				
-		
 	</main>
 
 		<footer class="page-footer"
